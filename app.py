@@ -11,12 +11,12 @@ def count_rows(rows):
 # Load the data
 @st.cache
 def load_data():
-    df_apr14=pd.read_csv(r'C:\Users\Lenovo\Downloads\uber-raw-data-apr14.csv')
-    df_may14=pd.read_csv(r'C:\Users\Lenovo\Downloads\uber-raw-data-may14.csv')
-    df_jun14=pd.read_csv(r'C:\Users\Lenovo\Downloads\uber-raw-data-jun14.csv')
-    df_jul14=pd.read_csv(r'C:\Users\Lenovo\Downloads\uber-raw-data-jul14.csv')
-    df_aug14=pd.read_csv(r'C:\Users\Lenovo\Downloads\uber-raw-data-aug14.csv')
-    df_sep14=pd.read_csv(r'C:\Users\Lenovo\Downloads\uber-raw-data-sep14.csv')
+    df_apr14=pd.read_csv(r'C:\Users\Lenovo\Downloads\uber-raw-data-sep14.csv.zip')
+    df_may14=pd.read_csv(r'C:\Users\Lenovo\Downloads\uber-raw-data-may14.csv.zip')
+    df_jun14=pd.read_csv(r'C:\Users\Lenovo\Downloads\uber-raw-data-jun14.csv.zip')
+    df_jul14=pd.read_csv(r'C:\Users\Lenovo\Downloads\uber-raw-data-jul14.csv.zip')
+    df_aug14=pd.read_csv(r'C:\Users\Lenovo\Downloads\uber-raw-data-aug14.csv.zip')
+    df_sep14=pd.read_csv(r'C:\Users\Lenovo\Downloads\uber-raw-data-sep14.csv.zip')
     df = pd.concat([df_apr14, df_may14, df_jun14, df_jul14, df_aug14, df_sep14], ignore_index=True)
     return df
 
@@ -76,3 +76,4 @@ df_month_weekday = df.groupby(['Month', 'Weekday'], sort=False).apply(count_rows
 plt.figure(figsize=(10, 8))
 sns.heatmap(df_month_weekday, cmap=cm.YlGnBu, linewidth=.5)
 st.pyplot()
+
